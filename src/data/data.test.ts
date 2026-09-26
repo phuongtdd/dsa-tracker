@@ -31,3 +31,11 @@ describe("dữ liệu tĩnh", () => {
     expect(videoUrl(twoSum)).toBe("https://www.youtube.com/results?search_query=neetcode%20Two%20Sum");
   });
 });
+
+test("đủ 18 guide, mỗi guide có template Java", async () => {
+  const { GUIDES } = await import("./guides");
+  for (const t of TOPICS) {
+    expect(GUIDES[t.id], t.id).toBeTruthy();
+    expect(GUIDES[t.id], t.id).toContain("```java");
+  }
+});
