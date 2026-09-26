@@ -16,7 +16,7 @@ export function applyAttempt(p: ProblemProgress, attempt: Attempt): ProblemProgr
 
   const reviewStage = Math.min(stage, MASTERED) as ReviewStage;
   const nextReview =
-    reviewStage === MASTERED ? null : addDays(attempt.date, INTERVALS[reviewStage]);
+    reviewStage === MASTERED ? null : addDays(attempt.date, INTERVALS[reviewStage as 0 | 1 | 2]);
 
   return { ...p, status: "done", attempts: [...p.attempts, attempt], reviewStage, nextReview };
 }
