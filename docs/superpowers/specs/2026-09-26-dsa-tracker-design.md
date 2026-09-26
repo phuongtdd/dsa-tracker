@@ -1,4 +1,4 @@
-# DSA Tracker — Thiết kế
+﻿# DSA Tracker — Thiết kế
 
 Ngày: 2026-09-26
 
@@ -19,7 +19,7 @@ Repo được đẩy lên GitHub (public), đồng thời là nơi lưu lời gi
 | Ngôn ngữ giao diện | Tiếng Việt; tên bài giữ tiếng Anh |
 | Thư viện thêm | `react-router-dom`, `react-markdown`, `highlight.js` |
 | Test | Vitest (+ React Testing Library cho smoke test) |
-| Style | CSS modules, tự theo dark/light của hệ điều hành |
+| Style | Một file CSS global với biến màu, tự theo dark/light của hệ điều hành |
 
 ## Ngoài phạm vi
 
@@ -59,9 +59,11 @@ type Problem = {
   difficulty: Difficulty;
   topicId: string;
   leetcodeUrl: string;   // https://leetcode.com/problems/<slug>/
-  videoUrl?: string;     // video NeetCode nếu có
+  premium?: boolean;     // bài cần LeetCode Premium (hiện badge)
 };
 ```
+
+Link video = link tìm kiếm YouTube `neetcode <title>` (tính bằng hàm `videoUrl(problem)`, không lưu cứng).
 
 Thứ tự bài trong một chủ đề: theo thứ tự trong `problems.ts` (đã sắp Easy → Medium → Hard).
 
